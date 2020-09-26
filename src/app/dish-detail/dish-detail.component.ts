@@ -1,3 +1,4 @@
+import { DisheService } from './../services/dishes.service';
 import {
   Component,
   OnInit,
@@ -12,11 +13,14 @@ import { Dish } from '../shared/dish';
 })
 export class DishDetailComponent implements OnInit {
 
-  @Input()
-  dish: Dish;
+  @Input() dish: Dish;
+  @Input() index : number ;
 
-  constructor() {}
+  constructor(private dishService: DisheService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.dishService.getDish(index) ;
+  }
+
 
 }

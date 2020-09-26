@@ -8,8 +8,22 @@ import { DISHES } from "../shared/dishes";
 })
 export class DisheService {
   DISHES: Dish [];
+
+
   getDishes(){
     return DISHES  ;
+  }
+
+  getDish(id : string) {
+    return DISHES.filter(
+      (dish : Dish) => { dish.id === id}
+    );
+  }
+
+  getFeaturedDish() : Dish {
+    return DISHES.filter(
+      (dish:Dish) => { dish.featured }
+      )[0]
   }
 
   constructor() { }
