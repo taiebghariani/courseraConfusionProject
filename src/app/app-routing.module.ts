@@ -1,3 +1,4 @@
+import { DishDetailComponent } from './dish-detail/dish-detail.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,8 @@ import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent },
-  { path: 'menu',     component: MenuComponent},
+  { path: 'menu',     component: MenuComponent, },
+  {path : 'dish-detail/:id', component: DishDetailComponent },
   { path: 'contactus',     component: ContactComponent},
   { path: 'aboutus',     component: AboutComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }

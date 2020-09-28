@@ -1,8 +1,8 @@
+import { ActivatedRoute, Params } from '@angular/router';
 import { DisheService } from './../services/dishes.service';
 import {
   Component,
-  OnInit,
-  Input
+  OnInit
 } from '@angular/core';
 import { Dish } from '../shared/dish';
 
@@ -13,13 +13,24 @@ import { Dish } from '../shared/dish';
 })
 export class DishDetailComponent implements OnInit {
 
-  @Input() dish: Dish;
-  @Input() index : number ;
+    dish: Dish;
+    // index : string ;
 
-  constructor(private dishService: DisheService) {}
+  constructor(private dishService: DisheService, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    // this.dishService.getDish(index) ;
+  ngOnInit() {
+    let id: string = this.route.snapshot.params["id"];
+    console.log("DishDetailComponent -> ngOnInit -> id", id)
+    this.dish = this.dishService.getDish(id);
+    console.log("DishDetailComponent -> ngOnInit -> this.dish", this.dish)
+    // this.dish = this.route.snapshot.params
+    // this.route.params.subscribe(
+    //   (param: Params) => {
+    //   // console.log("DishDetailComponent -> ngOnInit -> param----------------------------------", typeof(param.id))
+    //     this.dish = this.dishService.getDish(param.id);
+    //     console.log("dish =>  ", this.dish)
+    //   }
+    // )
   }
 
 
