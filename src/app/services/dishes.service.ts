@@ -21,9 +21,10 @@ export class DisheService {
   }
 
   getFeaturedDish() : Dish {
+    // console.log(DISHES[0].featured)
     return DISHES.filter(
-      (dish:Dish) => { dish.featured }
-      )[0]
+      (dish: Dish) => dish.featured // === true
+      )[0];
   }
 
   constructor() { }
