@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatDialog} from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-hearder',
   templateUrl: './hearder.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HearderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
+  openLoginForm() {
+    this.dialog.open(LoginComponent,{ width: '500px', height: '450px' });
+  }
+
 
 }
